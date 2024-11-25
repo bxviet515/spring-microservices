@@ -14,7 +14,6 @@ import lombok.Setter;
 @Table(name="books")
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String name;

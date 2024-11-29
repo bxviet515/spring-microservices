@@ -23,9 +23,9 @@ public class EmployeeEventHandler {
     }
 
     @EventHandler
-    public void on(EmployeeUpdatedEvent event){
+    public void on(EmployeeUpdatedEvent event) throws Exception {
         Optional<Employee> oldEmployee = employeeRepository.findById(event.getId());
-        Employee employee = oldEmployee.orElseThrow(() -> new NotFoundException("Employee not found"));
+        Employee employee = oldEmployee.orElseThrow(() -> new Exception("Employee not found"));
         employee.setFirstName(event.getFirstName());
         employee.setLastName(event.getLastName());
         employee.setKin(event.getKin());
@@ -33,5 +33,11 @@ public class EmployeeEventHandler {
         employeeRepository.save(employee);
 
 
+    }
+
+    @EventHandler
+    public void on(EmployeeDeletedEvent event) throws Exception {
+        employeeRepository.findById(event.getId()).orElseThrow(() -> new Exception("Employee not found"));
+        employeeRepository.deleteById(event.getId());
     }
 }

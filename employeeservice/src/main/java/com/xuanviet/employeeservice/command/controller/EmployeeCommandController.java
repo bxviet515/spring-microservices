@@ -1,6 +1,7 @@
 package com.xuanviet.employeeservice.command.controller;
 
 import com.xuanviet.employeeservice.command.command.CreateEmployeeCommand;
+import com.xuanviet.employeeservice.command.command.DeleteEmployeeCommand;
 import com.xuanviet.employeeservice.command.command.UpdateEmployeeCommand;
 import com.xuanviet.employeeservice.command.model.CreateEmployeeModel;
 import com.xuanviet.employeeservice.command.model.UpdateEmployeeModel;
@@ -26,6 +27,12 @@ public class EmployeeCommandController {
     @PutMapping("/{employeeId}")
     public String updateEmployee(@Valid @RequestBody UpdateEmployeeModel model, @PathVariable String employeeId){
         UpdateEmployeeCommand command = new UpdateEmployeeCommand(employeeId, model.getFirstName(), model.getLastName(), model.getKin(), false);
+        return commandGateway.sendAndWait(command);
+    }
+
+    @DeleteMapping("/{employeeId}")
+    public String deleteEmployee(@PathVariable String employeeId){
+        DeleteEmployeeCommand command = new DeleteEmployeeCommand(employeeId);
         return commandGateway.sendAndWait(command);
     }
 }

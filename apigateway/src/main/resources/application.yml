@@ -22,6 +22,7 @@ spring:
                 redis-rate-limiter.replenishRate: 10 # trong 1 giay nap lai duoc 10 tokens
                 redis-rate-limiter.burstCapacity: 20 # so tokens toi da trong 1 bucket
                 redis-rate-limiter.requestedTokens: 1 # so token tieu ton cho 1 req
+            - KeyAuthFilter
 eureka:
   instance:
     hostname: localhost

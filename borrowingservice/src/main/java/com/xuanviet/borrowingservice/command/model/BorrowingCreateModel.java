@@ -9,6 +9,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BorrowingCreateModel {
+    private String bookId;
     private String employeeId;
     private Date borrowDate;
 }

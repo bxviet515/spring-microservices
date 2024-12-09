@@ -16,11 +16,8 @@ import java.util.Date;
 import java.util.UUID;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping("/api/v1/borrowing")
 public class BorrowingCommandController {
-    @Autowired
-    private final BorrowingRepository borrowingRepository;
     @Autowired
     private CommandGateway commandGateway;
 

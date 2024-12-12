@@ -2,10 +2,10 @@ package com.xuanviet.bookservice.query.projection;
 
 import com.xuanviet.bookservice.command.data.Book;
 import com.xuanviet.bookservice.command.data.BookRepository;
-import com.xuanviet.bookservice.command.model.BookRequestModel;
 import com.xuanviet.bookservice.query.model.BookResponseModel;
 import com.xuanviet.bookservice.query.queries.GetAllBookQuery;
-import com.xuanviet.bookservice.query.queries.GetBookDetailQuery;
+import com.xuanviet.commonservice.model.BookResponseCommonModel;
+import com.xuanviet.commonservice.queries.GetBookDetailQuery;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +32,8 @@ public class BookProjection {
     }
 
     @QueryHandler
-    public BookResponseModel handle(GetBookDetailQuery query) throws Exception {
-        BookResponseModel bookResponseModel = new BookResponseModel();
+    public BookResponseCommonModel handle(GetBookDetailQuery query) throws Exception {
+        BookResponseCommonModel bookResponseModel = new BookResponseCommonModel();
         Book book = bookRepository.findById(query.getId()).orElseThrow(() -> new Exception("Not found Book with id: "+query.getId()));
 
 

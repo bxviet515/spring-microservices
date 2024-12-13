@@ -1,4 +1,4 @@
-package com.xuanviet.employeeservice.query.queries;
+package com.xuanviet.commonservice.queries;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -2,7 +2,7 @@ package com.xuanviet.employeeservice.query.controller;
 
 import com.xuanviet.employeeservice.query.model.EmployeeResponseModel;
 import com.xuanviet.employeeservice.query.queries.GetAllEmployeeQuery;
-import com.xuanviet.employeeservice.query.queries.GetDetailEmployeeQuery;
+import com.xuanviet.commonservice.queries.GetDetailEmployeeQuery;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
